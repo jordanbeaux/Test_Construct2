@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>New project</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>1lbeztuu9e56r</unique-id>
+    <saved-with-version>27500</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>640</width>
+        <height>320</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Main_menu</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Bee" sid="184619658161189">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="pollen" sid="903835642438658" type="number" />
+                <instance-variable name="max_pollen" sid="307511778910561" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="8Direction" sid="879430517596498">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="335374520977739" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Bee.png">
+                        <image-point name="Top" x="0.5" y="0" />
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0.09375" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.78125" y="0.78125" />
+                            <point x="0.5" y="0.8125" />
+                            <point x="0.21875" y="0.78125" />
+                            <point x="0.21875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Hive" sid="364811073297944">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Honey" sid="850492610189065" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Timer" sid="425844656171948">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="779158090320537" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Hive.png">
+                        <collision-poly>
+                            <point x="0.046875" y="0.046875" />
+                            <point x="0.5" y="0.226563" />
+                            <point x="0.757813" y="0.242188" />
+                            <point x="0.671875" y="0.5" />
+                            <point x="0.71875" y="0.71875" />
+                            <point x="0.5" y="0.984375" />
+                            <point x="0.273438" y="0.726563" />
+                            <point x="0.3125" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Honey" sid="671826787115699">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Flower" sid="346013331618225">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="pollen_available" sid="627094472210671" type="number" />
+                <instance-variable name="pollination_time" sid="245099891537604" type="number" />
+                <instance-variable name="pollen_left" sid="545731890032931" type="number" />
+                <instance-variable name="Visible" sid="469938295442572" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Timer" sid="910850336571641">
+                    <behavior id="Timer" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="808248684132465">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="110495838649256" speed="5">
+                    <frame duration="1" hotspotX="0.53125" hotspotY="1.00781" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Flower_clean.png">
+                        <image-point name="Top" x="0.03125" y="0" />
+                        <collision-poly>
+                            <point x="0.21875" y="0.0546875" />
+                            <point x="0.5" y="0.0390625" />
+                            <point x="0.78125" y="0.0546875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0.5625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Faded" pingpong="0" repeatcount="1" repeatto="0" sid="798160545537418" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Flower_dead.png">
+                        <collision-poly>
+                            <point x="0.5625" y="0.140625" />
+                            <point x="0.5" y="0.140625" />
+                            <point x="0.21875" y="0.195313" />
+                            <point x="0.65625" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0.4375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Halffaded" pingpong="0" repeatcount="1" repeatto="0" sid="708696043138468" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Flower_step1.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.195313" />
+                            <point x="0.65625" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0.4375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="spawnable_zone" sid="232933712857334">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\PC\Téléchargements\Forest Tileset\BG\NonParallax.png" />
+        </object-type>
+        <object-type name="humanity" sid="190972391086607">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Buildings.png" />
+        </object-type>
+        <object-type name="Rejouez" sid="441012221546251">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Warning" sid="857262934362823">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Link_ruche" sid="274553121899700">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Mouse" sid="529435519069637">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Browser" sid="974588279552416">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="Link_plante_miel" sid="817131636502496">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Hidden_human" sid="231633704779402">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="103554482008922" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Bord" sid="621023223587503">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="198995234959546">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="Bord2" sid="777718875721699">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="278395523688690">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="Bord3" sid="679308262431855">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="960370461758993">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="Pollen" sid="516112369288630">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Jouer" sid="244778426950480">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Titre" sid="787129685611818">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Pollen_particules" sid="518554407403605">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Honey_particules" sid="551189293931638">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Keyboard" sid="757313825515298">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Bee_animated" sid="523862349886522">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="pollen" sid="997276681009828" type="number" />
+                <instance-variable name="max_pollen" sid="736683060045633" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Sine" sid="495391328877898">
+                    <behavior id="Sin" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="719617320527641">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373982229338129" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Bee.png">
+                        <image-point name="Top" x="0.5" y="0" />
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0.09375" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.78125" y="0.78125" />
+                            <point x="0.5" y="0.8125" />
+                            <point x="0.21875" y="0.78125" />
+                            <point x="0.21875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground" sid="857382978145524">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\PC\Téléchargements\Forest Tileset\BG\HUD.png" />
+        </object-type>
+        <object-type name="Commands" sid="943724598932298">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Commands_arrow" sid="381549976605334">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Controls.png" />
+        </object-type>
+        <object-type name="Clic" sid="803892575105948">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="Visible" sid="429433150750599" type="boolean" />
+            </instance-variables>
+            <texture original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Clic.png" />
+        </object-type>
+        <object-type name="Humanity_physics" sid="493223108465359">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="423448808604522" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\pc\Documents\Projets Perso\Jeux Vidéos\Bee Worry, Don&apos;t Happy\Graphismes\Buildings.png">
+                        <image-point name="Spawn" x="1" y="0" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Main_layout.xml</layout>
+        <layout>Game_Over.xml</layout>
+        <layout>Main_menu.xml</layout>
+        <layout>Objects.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>ES_Main_Layout.xml</event-sheet>
+        <event-sheet>ES_GameOver.xml</event-sheet>
+        <event-sheet>ES_Main_Menu.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="9" />
+        <global-instance type="Browser" uid="10" />
+        <global-instance type="Keyboard" uid="21" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

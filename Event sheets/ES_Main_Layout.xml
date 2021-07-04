@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ES_Main_Layout</name>
+    <events>
+        <variable constant="0" name="Test" sid="778098163987474" static="0" type="number">0</variable>
+        <variable constant="0" name="current_flower" sid="662968383399002" static="0" type="number">0</variable>
+        <variable constant="0" name="max_flower" sid="842653262146702" static="0" type="number">5</variable>
+        <event-block sid="176289976536743">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="253944786871634" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="746020230300486" type="System">
+                    <param id="0" name="Variable">current_flower</param>
+                    <param id="1" name="Value">Flower.Count</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="276553292357438">
+            <conditions>
+                <condition id="-18" name="On created" sid="774418632476602" type="Flower" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="631497456912510" type="Flower">
+                    <param id="0" name="Instance variable">pollen_available</param>
+                    <param id="1" name="Value">round(random(5,25))</param>
+                </action>
+                <action id="-10" name="Set value" sid="451493490415313" type="Flower">
+                    <param id="0" name="Instance variable">pollination_time</param>
+                    <param id="1" name="Value">round(random(1,5))</param>
+                </action>
+                <action id="-10" name="Set value" sid="877064426402515" type="Flower">
+                    <param id="0" name="Instance variable">pollen_left</param>
+                    <param id="1" name="Value">Flower.pollen_available</param>
+                </action>
+                <action id="4" name="Set animation" sid="487548805310586" type="Flower">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="881203799864286">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="285675500162957" type="Bee">
+                    <param id="0" name="Object">Flower</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="125523511376685" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="598769056145188" type="Flower">
+                    <param id="0" name="Duration">Flower.pollination_time</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;pollination&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="213152583697246">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="916673695797714" type="Bee">
+                    <param id="0" name="Object">Flower</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="1" name="Stop timer" sid="226062551923848" type="Flower">
+                    <param id="0" name="Tag">&quot;pollination&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="692837126693206">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="471791690963302" type="Flower">
+                    <param id="0" name="Tag">&quot;pollination&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="755539639456546" type="Flower">
+                    <param id="0" name="Object">Pollen_particules</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="686122677206656">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="892782021149301" type="Flower">
+                            <param id="0" name="Instance variable">pollen_left</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">(Bee.max_pollen-Bee.pollen)</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="869480110668734" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="787398544296411" type="Bee">
+                            <param id="0" name="Instance variable">pollen</param>
+                            <param id="1" name="Value">Flower.pollen_left</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="478993707817273" type="Flower">
+                            <param id="0" name="Instance variable">pollen_left</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action behavior="Timer" id="0" name="Start timer" sid="612540724272539" type="Flower">
+                            <param id="0" name="Duration">2.0</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;death&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="191271445388885">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="964390899164563" type="System" />
+                        <condition id="-4" name="Trigger once while true" sid="720407217688802" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="680166483684056" type="Flower">
+                            <param id="0" name="Instance variable">pollen_left</param>
+                            <param id="1" name="Value">(Bee.max_pollen-Bee.pollen)</param>
+                        </action>
+                        <action id="-11" name="Add to" sid="174091710456904" type="Bee">
+                            <param id="0" name="Instance variable">pollen</param>
+                            <param id="1" name="Value">(Bee.max_pollen-Bee.pollen)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="331086371818034">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="773942729585746" type="Flower">
+                    <param id="0" name="Instance variable">pollen_left</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">Flower.pollen_available/2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="602818809161639" type="Flower">
+                    <param id="0" name="Animation">&quot;Halffaded&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="175865401116575">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="998964148843159" type="Flower">
+                    <param id="0" name="Instance variable">pollen_left</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="524661484041959" type="Flower">
+                    <param id="0" name="Animation">&quot;Faded&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="501774724354266">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="564782363312310" type="Bee">
+                    <param id="0" name="Object">Hive</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="390366059441397" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="0" name="Start timer" sid="465332700561515" type="Hive">
+                    <param id="0" name="Duration">3.0</param>
+                    <param id="1" name="Type">0</param>
+                    <param id="2" name="Tag">&quot;storage&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="881690457287859">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="376250515433247" type="Bee">
+                    <param id="0" name="Object">Hive</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Timer" id="1" name="Stop timer" sid="715213527324155" type="Hive">
+                    <param id="0" name="Tag">&quot;storage&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="432689632422587">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="694874407917639" type="Hive">
+                    <param id="0" name="Tag">&quot;storage&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Add to" sid="281604889961448" type="Hive">
+                    <param id="0" name="Instance variable">Honey</param>
+                    <param id="1" name="Value">Bee.pollen</param>
+                </action>
+                <action id="-10" name="Set value" sid="513895620080453" type="Bee">
+                    <param id="0" name="Instance variable">pollen</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="132380911225109" type="Hive">
+                    <param id="0" name="Object">Honey_particules</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-25" name="Move to bottom" sid="296649473114723" type="Honey_particules" />
+            </actions>
+        </event-block>
+        <event-block sid="365357843119432">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="690088200013084" type="Flower">
+                    <param id="0" name="Tag">&quot;death&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="635349048593229" type="Flower" />
+                <action id="-11" name="Subtract from" sid="788816246635133" type="System">
+                    <param id="0" name="Variable">current_flower</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="706449980682130">
+            <conditions>
+                <condition id="-5" name="Compare width" sid="334488914135337" type="humanity">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Width">768</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="532408666627381" type="System">
+                    <param id="0" name="Seconds">5</param>
+                </action>
+                <action id="-9" name="Set value" sid="772363275561186" type="System">
+                    <param id="0" name="Variable">Message</param>
+                    <param id="1" name="Value">&quot;Marre de perdre ? Alors agis et sauve les abeilles ! Quelques liens pour t&apos;aider ! :)&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="402592665232440" type="System">
+                    <param id="0" name="Layout">Game_Over</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="333249966931982">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="393924246513283" type="Bee">
+                    <param id="0" name="Object">Hidden_human</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="168333158274333" type="System">
+                    <param id="0" name="Variable">Message</param>
+                    <param id="1" name="Value">&quot;Tu as tué l&apos;humanité, bien joué ! Mais sauve quand même les abeilles !&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="931305166797053" type="System">
+                    <param id="0" name="Layout">Game_Over</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="725477949453422">
+            <conditions>
+                <condition id="2" name="Key is down" sid="342622526448597" type="Keyboard">
+                    <param id="0" name="Key">37</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="449908674655131" type="Bee">
+                    <param id="0" name="Angle">180</param>
+                </action>
+                <action id="8" name="Set flipped" sid="138870359017793" type="Bee">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="977418261181396">
+            <conditions>
+                <condition id="2" name="Key is down" sid="354872884724569" type="Keyboard">
+                    <param id="0" name="Key">39</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="813353575651202" type="Bee">
+                    <param id="0" name="Angle">360</param>
+                </action>
+                <action id="8" name="Set flipped" sid="277902725258041" type="Bee">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="365694038909512">
+            <conditions>
+                <condition id="-3" name="Is on-screen" sid="678026802376859" type="Bee" />
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="255120033627249" type="System">
+                    <param id="0" name="Group name">&quot;Start&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" inactive="1" sid="170007247634410" title="Start">
+            <sub-events>
+                <event-block sid="921221430706712">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="832172967394085" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-21" name="Reset global variables" sid="976893403853541" type="System" />
+                        <action id="-46" name="Recreate initial objects" sid="919744061180059" type="System">
+                            <param id="0" name="Object">Hive</param>
+                            <param id="1" name="From X">0</param>
+                            <param id="2" name="From Y">0</param>
+                            <param id="3" name="To X">640</param>
+                            <param id="4" name="To Y">320</param>
+                        </action>
+                        <action id="-46" name="Recreate initial objects" sid="902049720107973" type="System">
+                            <param id="0" name="Object">Bee</param>
+                            <param id="1" name="From X">0</param>
+                            <param id="2" name="From Y">0</param>
+                            <param id="3" name="To X">640</param>
+                            <param id="4" name="To Y">320</param>
+                        </action>
+                        <action id="-46" name="Recreate initial objects" sid="552370041276895" type="System">
+                            <param id="0" name="Object">humanity</param>
+                            <param id="1" name="From X">0</param>
+                            <param id="2" name="From Y">0</param>
+                            <param id="3" name="To X">640</param>
+                            <param id="4" name="To Y">320</param>
+                        </action>
+                        <action id="-46" name="Recreate initial objects" sid="953326247962712" type="System">
+                            <param id="0" name="Object">spawnable_zone</param>
+                            <param id="1" name="From X">0</param>
+                            <param id="2" name="From Y">0</param>
+                            <param id="3" name="To X">640</param>
+                            <param id="4" name="To Y">320</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="620116568326158">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="139290365257845" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="859270808351044" type="Honey">
+                            <param id="0" name="Text">&quot;Ton miel : &quot; &amp; Hive.Honey</param>
+                        </action>
+                        <action id="0" name="Set text" sid="785074008426326" type="Pollen">
+                            <param id="0" name="Text">&quot;Ton pollen actuel : &quot;&amp;Bee.pollen &amp; &quot;/ &quot; &amp; Bee.max_pollen</param>
+                        </action>
+                        <action id="-24" name="Move to top" sid="435007555277858" type="Bee" />
+                        <action id="-29" name="Move to object" sid="939653146498465" type="Hive">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Object">Bee</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="377220445756517">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="882018475183232" type="System">
+                            <param id="0" name="Interval (seconds)">round(random(1,3))</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="892856827934042" type="System">
+                            <param id="0" name="Variable">max_flower</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">Flower.Count</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="370339857158269" type="System">
+                            <param id="0" name="Object to create">Flower</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">round(random(spawnable_zone.BBoxLeft+32, spawnable_zone.BBoxRight-32))</param>
+                            <param id="3" name="Y">choose(320,304,288)</param>
+                        </action>
+                        <action id="-25" name="Move to bottom" sid="742997066121036" type="Flower" />
+                    </actions>
+                </event-block>
+                <event-block bookmark="1" sid="353584854884818">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="689439079612325" type="System">
+                            <param id="0" name="Interval (seconds)">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="878925013874464" type="Humanity_physics">
+                            <param id="0" name="Object">Humanity_physics</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="327582426767040" type="spawnable_zone">
+                            <param id="0" name="Width">spawnable_zone.Width-128</param>
+                            <param id="1" name="Height">spawnable_zone.Height</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="678187181857082" type="humanity">
+                            <param id="0" name="Width">humanity.Width+128</param>
+                            <param id="1" name="Height">humanity.Height</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="155183059130787" type="spawnable_zone">
+                            <param id="0" name="X">humanity.BBoxRight</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="387066367800317">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="458726950368825" type="Humanity_physics">
+                    <param id="0" name="Object">Flower</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="814077078263520" type="Flower" />
+                <action id="-11" name="Subtract from" sid="762815435114351" type="System">
+                    <param id="0" name="Variable">current_flower</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ES_Main_Menu</name>
+    <events>
+        <event-block sid="144935485484254">
+            <conditions>
+                <condition id="0" name="On clicked" sid="123887057053042" type="Jouer" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="606534450497557" type="System">
+                    <param id="0" name="Layout">Main_layout</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="432197840208748">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="570704288056073" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="773016291330415" type="System">
+                    <param id="0" name="Object to create">Bee_animated</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">-23</param>
+                    <param id="3" name="Y">round(random(100,200))</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="777532940622248">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="727855966369945" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set CSS style" sid="844643369608753" type="Jouer">
+                    <param id="0" name="Property name">&quot;border&quot;</param>
+                    <param id="1" name="Value">&quot;10px solid #f0c300&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="578081494174954" type="Jouer">
+                    <param id="0" name="Property name">&quot;color&quot;</param>
+                    <param id="1" name="Value">&quot;#ffff00&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="356265200647849" type="Jouer">
+                    <param id="0" name="Property name">&quot;border-radius&quot;</param>
+                    <param id="1" name="Value">&quot;25px&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="794240923794609" type="Jouer">
+                    <param id="0" name="Property name">&quot;background-color&quot;</param>
+                    <param id="1" name="Value">&quot;#f0c300&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="470209096071389" type="Jouer">
+                    <param id="0" name="Property name">&quot;font-family&quot;</param>
+                    <param id="1" name="Value">&quot;Arial&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="167858823305371" type="Rejouez">
+                    <param id="0" name="Property name">&quot;border&quot;</param>
+                    <param id="1" name="Value">&quot;10px solid #f0c300&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="622420648780165" type="Rejouez">
+                    <param id="0" name="Property name">&quot;color&quot;</param>
+                    <param id="1" name="Value">&quot;#ffff00&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="367912633906833" type="Rejouez">
+                    <param id="0" name="Property name">&quot;border-radius&quot;</param>
+                    <param id="1" name="Value">&quot;25px&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="812530011975818" type="Rejouez">
+                    <param id="0" name="Property name">&quot;background-color&quot;</param>
+                    <param id="1" name="Value">&quot;#f0c300&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="567443956200324" type="Rejouez">
+                    <param id="0" name="Property name">&quot;font-family&quot;</param>
+                    <param id="1" name="Value">&quot;Arial&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="142082137594025" type="Commands">
+                    <param id="0" name="Text">replace(Commands.Text, &quot;new line&quot;,newline)</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ES_GameOver</name>
+    <events>
+        <variable constant="0" name="Message" sid="131331815684268" static="0" type="text"></variable>
+        <event-block sid="108475992391439">
+            <conditions>
+                <condition id="0" name="On clicked" sid="320893236671812" type="Rejouez" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="430983698851231" type="System">
+                    <param id="0" name="Layout">Main_menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="615701247734867">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="677817189835482" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Link_ruche</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" sid="212080036546633" type="Browser">
+                    <param id="0" name="URL">&quot;https://www.untoitpourlesabeilles.fr/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="640552229383474">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="435103908245605" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Link_plante_miel</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="8" name="Open URL in new window" sid="860927893156332" type="Browser">
+                    <param id="0" name="URL">&quot;https://www.jardiniers-professionnels.fr/plantes-melliferes-au-printemps/&quot;</param>
+                    <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="977393734459933">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="879808013509352" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="988458516547275" type="System">
+                    <param id="0" name="Object to create">Warning</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">120</param>
+                    <param id="3" name="Y">30</param>
+                </action>
+                <action id="0" name="Set text" sid="573438296957587" type="Warning">
+                    <param id="0" name="Text">Message</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="742328424086958">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="320597965255528" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set CSS style" sid="568606909309745" type="Rejouez">
+                    <param id="0" name="Property name">&quot;border&quot;</param>
+                    <param id="1" name="Value">&quot;10px solid #f0c300&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="699227603310921" type="Rejouez">
+                    <param id="0" name="Property name">&quot;color&quot;</param>
+                    <param id="1" name="Value">&quot;#ffff00&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="450159192537971" type="Rejouez">
+                    <param id="0" name="Property name">&quot;border-radius&quot;</param>
+                    <param id="1" name="Value">&quot;25px&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="361245791268700" type="Rejouez">
+                    <param id="0" name="Property name">&quot;background-color&quot;</param>
+                    <param id="1" name="Value">&quot;#f0c300&quot;</param>
+                </action>
+                <action id="5" name="Set CSS style" sid="130201366788958" type="Rejouez">
+                    <param id="0" name="Property name">&quot;font-family&quot;</param>
+                    <param id="1" name="Value">&quot;Arial&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="237069026766069">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="821790112950075" type="System">
+                    <param id="0" name="Interval (seconds)">0.3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-14" name="Toggle boolean" sid="695434353884199" type="Clic">
+                    <param id="0" name="Instance variable">Visible</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="470388778686927">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="592067872784951" type="Clic">
+                    <param id="0" name="Instance variable">Visible</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="856512579395203" type="Clic">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="705005312480740">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="155788698199284" type="Clic">
+                    <param id="0" name="Instance variable">Visible</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="767028582481075" type="Clic">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
